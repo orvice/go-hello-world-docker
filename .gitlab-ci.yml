@@ -11,6 +11,7 @@ stages:
 
 format:
     stage: test
+    image: golang:1.8
     script:
         - go get
 
