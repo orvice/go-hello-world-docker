@@ -5,6 +5,15 @@ image: docker:latest
 services:
   - docker:dind
 
+stages:
+    - test
+    - build
+
+format:
+    stage: test
+    script:
+        - go get
+
 build:
   stage: build
   image: gitlab/dind
