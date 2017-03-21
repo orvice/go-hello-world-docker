@@ -20,3 +20,4 @@ build:
     - docker push "$CI_REGISTRY_IMAGE:$IMAGE_TAG"
   environment:
       name: dev
+      url: $DEV_URL
