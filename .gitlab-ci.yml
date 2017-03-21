@@ -6,14 +6,9 @@ services:
   - docker:dind
 
 stages:
-    - test
     - build
 
-format:
-    stage: test
-    image: golang:1.8
-    script:
-        - go get
+
 
 build:
   stage: build
@@ -23,3 +18,5 @@ build:
     - docker login -u "$CI_BUILD_USER"  -p "$CI_BUILD_TOKEN" $CI_REGISTRY
     - docker build --pull -t "$CI_REGISTRY_IMAGE:$IMAGE_TAG" .
     - docker push "$CI_REGISTRY_IMAGE:$IMAGE_TAG"
+  environment:
+      name: dev
